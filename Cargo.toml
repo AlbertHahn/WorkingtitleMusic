@@ -5,5 +5,9 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+dev = ["bevy/trace", "bevy/dynamic_linking", "bevy_fmod/live-update"]
+
 [dependencies]
 bevy = "0.12.1"
+bevy_fmod = { git = "https://github.com/passivedragon/bevy_fmod" }
