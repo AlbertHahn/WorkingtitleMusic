@@ -8,3 +8,6 @@ audio/.cache
 audio/.unsaved
 audio/.user
 audio/.restore
+
+# Blender
+*.blend1

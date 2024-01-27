@@ -2,6 +2,17 @@ use bevy::prelude::*;
 use bevy_fmod::fmod_plugin::FmodPlugin;
 
 mod game;
+mod splash;
+mod utility;
+mod menu;
+
+#[derive(Clone, Copy, Default, Eq, PartialEq, Debug, Hash, States)]
+pub enum AppState {
+    #[default]
+    Splash,
+    Menu,
+    Game,
+}
 
 fn main() {
     use const_str::concat;
@@ -22,5 +33,12 @@ fn main() {
             audio_banks_paths: &FMOD_BANKS,
         })
         .add_plugins(game::MyGamePlugin)
+        .add_state::<AppState>()
+        // .add_systems(, systems)
         .run();
 }
+
+fn load_assets(commands: Commands){
+    
+}
+
