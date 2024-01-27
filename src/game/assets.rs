@@ -1,3 +1,8 @@
 use bevy::asset::Handle;
+use bevy_asset_loader::asset_collection::AssetCollection;
 
-//const GARAGE_HANDLE: Handle<Mesh>;
+#[derive(AssetCollection, Resource)]
+struct AudioAssets {
+    #[asset(path = "house.gltf")]
+    garage_handle: Handle<Mesh>,
+}

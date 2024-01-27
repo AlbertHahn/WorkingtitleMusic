@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy_asset_loader::prelude::*;
 
 use crate::{AppState, utility};
 
@@ -8,6 +9,11 @@ impl Plugin for SplashPlugin {
     fn build(&self, app: &mut App) {
         // As this plugin is managing the splash screen, it will focus on the state `GameState::Splash`
         app
+            .add_loading_state(
+                LoadingState::new(MyStates::AssetLoading)
+                    .continue_to_state(MyStates::Next)
+                    .load_collection::<AudioAssets>(),
+            )
             // When entering the state, spawn everything needed for this screen
             .add_systems(OnEnter(AppState::Splash), splash_setup)
             // While in this state, run the `countdown` system
