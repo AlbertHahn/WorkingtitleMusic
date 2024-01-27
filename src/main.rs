@@ -48,5 +48,15 @@ fn main() {
         app.add_plugins(WorldInspectorPlugin::new());
     }
 
+    app.add_systems(Startup, |mut commands: Commands|{
+        commands.spawn((
+            Name::new("MenuCamera"),
+            menu::MenuCamera,
+            Camera2dBundle {
+                ..default()
+            }
+        ));
+    });
+
     app.run();
 }
