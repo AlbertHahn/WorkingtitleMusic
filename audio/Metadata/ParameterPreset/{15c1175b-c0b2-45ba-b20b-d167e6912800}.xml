@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{15c1175b-c0b2-45ba-b20b-d167e6912800}">
+		<property name="name">
+			<value>Slot2_C_Vol</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9d62b16e-7f26-4bf4-bed8-2afb08ed9718}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e30a715f-dc11-4a09-a8ef-b714777238a6}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e30a715f-dc11-4a09-a8ef-b714777238a6}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
