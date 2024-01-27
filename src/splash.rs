@@ -15,7 +15,8 @@ impl Plugin for SplashPlugin {
                     .load_collection::<MyAssets>(),
             )
             // When entering the state, spawn everything needed for this screen
-            .add_systems(OnEnter(AppState::Splash), splash_setup)
+            .add_systems(Startup, splash_setup)
+            // .add_systems(OnEnter(AppState::Splash), splash_setup)
             // While in this state, run the `countdown` system
             .add_systems(Update, countdown.run_if(in_state(AppState::Splash)))
             // When exiting the state, despawn everything that was spawned for this screen
@@ -27,7 +28,9 @@ impl Plugin for SplashPlugin {
 struct OnSplashScreen;
 
 fn splash_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
-    let fmod_icon = asset_server.load("FMOD Logo Black - White Background.png");
+    info!("deploy splash screen!");
+
+    let fmod_icon = asset_server.load("FMOD Logo White - Black Background.png");
     // Display the logo
     commands
         .spawn((

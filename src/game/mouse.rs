@@ -8,6 +8,7 @@ pub fn mouse_setup(
 ){
     // Spawn squares
     commands.spawn((
+        super::InGame,
         PickableBundle::default(), // <- Makes the mesh pickable.
         On::<Pointer<DragStart>>::target_insert(Pickable::IGNORE), // Disable picking
         On::<Pointer<DragEnd>>::target_insert(Pickable::default()), // Re-enable picking
