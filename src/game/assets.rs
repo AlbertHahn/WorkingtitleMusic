@@ -1,3 +1,10 @@
-use bevy::asset::Handle;
+use bevy::prelude::*;
+use bevy_asset_loader::asset_collection::AssetCollection;
 
-const GARAGE_HANDLE: Handle<Mesh>;
+#[derive(AssetCollection, Resource)]
+pub(crate) struct MyAssets {
+    #[asset(path = "house/house.gltf")]
+    garage_handle: Handle<Mesh>,
+    #[asset(path = "garage musician default.gltf")]
+    musician_default: Handle<Mesh>,
+}
