@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{fa16667d-ce02-4c2c-8b6d-336c4722a4a0}">
+		<property name="assetPath">
+			<value>music/Lvl1-Garage/instrument_slot3/Lvl1_In3_2_Drums2.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>214.41405895691611</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1d70fd8c-6ea2-4583-9569-ad338947b365}</destination>
+		</relationship>
+	</object>
+</objects>

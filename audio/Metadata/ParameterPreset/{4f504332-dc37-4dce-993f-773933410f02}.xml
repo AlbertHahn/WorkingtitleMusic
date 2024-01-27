@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4f504332-dc37-4dce-993f-773933410f02}">
+		<property name="name">
+			<value>Slot1_A_Detune</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9d62b16e-7f26-4bf4-bed8-2afb08ed9718}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{c97acf01-1034-4b24-890f-2b14c0a1185b}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{c97acf01-1034-4b24-890f-2b14c0a1185b}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
