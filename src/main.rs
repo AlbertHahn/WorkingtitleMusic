@@ -8,7 +8,7 @@ mod splash;
 mod utility;
 mod menu;
 
-#[derive(Clone, Copy, Default, Eq, PartialEq, Debug, Hash, States, Reflect)]
+#[derive(Clone, Copy, Default, Eq, PartialEq, Debug, Hash, States)]
 pub enum AppState {
     #[default]
     Splash,
@@ -43,8 +43,8 @@ fn main() {
         ;
     #[cfg(debug_assertions)]
     {
-        app.register_type::<AppState>();
-        app.add_plugins(StateInspectorPlugin::<AppState>::default());
+        // app.register_type::<AppState>();
+        // app.add_plugins(StateInspectorPlugin::<AppState>::default());
         app.add_plugins(WorldInspectorPlugin::new());
     }
 
