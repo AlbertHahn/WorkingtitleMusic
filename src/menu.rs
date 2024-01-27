@@ -145,7 +145,7 @@ fn menu_action(
             match menu_button_action {
                 MenuButtonAction::Quit => app_exit_events.send(bevy::app::AppExit),
                 MenuButtonAction::Play => {
-                    appstate.set(AppState::Game).unwrap();
+                    // appstate.set(AppState::Game).unwrap();
                 }
             }
         }
