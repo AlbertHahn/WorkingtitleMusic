@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use const_str::unwrap;
 
 use crate::AppState;
 
@@ -20,6 +21,13 @@ impl Plugin for MenuPlugin {
                 crate::utility::despawn_screen::<OnMenuScreen>,
             );
         // .add_systems(OnExit(AppState::Menu), systems);
+
+        // Generalized button handling
+        app
+            .add_systems(
+                Update,
+                (menu_action, button_system).run_if(in_state(AppState::Menu)),
+            );
     }
 }
 
@@ -136,7 +144,9 @@ fn menu_action(
         if *interaction == Interaction::Pressed {
             match menu_button_action {
                 MenuButtonAction::Quit => app_exit_events.send(bevy::app::AppExit),
-                MenuButtonAction::Play => {}
+                MenuButtonAction::Play => {
+                    appstate.set(AppState::Game).unwrap();
+                }
             }
         }
     }
