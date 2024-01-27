@@ -9,9 +9,10 @@ impl Plugin for SplashPlugin {
     fn build(&self, app: &mut App) {
         // As this plugin is managing the splash screen, it will focus on the state `GameState::Splash`
         app
+            .add_state::<AssetLoadingState>()
             .add_loading_state(
-                LoadingState::new(AppState::Splash)
-                    .continue_to_state(AppState::Menu)
+                LoadingState::new(AssetLoadingState::Loading)
+                    .continue_to_state(AssetLoadingState::Finished)
                     .load_collection::<MyAssets>(),
             )
             // When entering the state, spawn everything needed for this screen
@@ -62,6 +63,14 @@ fn splash_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
 
 #[derive(Resource, Deref, DerefMut)]
 struct SplashTimer(Timer);
+
+
+#[derive(Clone, Copy, Default, Eq, PartialEq, Debug, Hash, States, Reflect)]
+enum AssetLoadingState{
+    #[default]
+    Loading,
+    Finished
+}
 
 fn countdown(
     mut game_state: ResMut<NextState<AppState>>,

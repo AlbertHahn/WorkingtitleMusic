@@ -26,6 +26,10 @@ impl Plugin for MenuPlugin {
 #[derive(Component)]
 struct OnMenuScreen;
 
+
+#[derive(Component)]
+pub struct MenuCamera;
+
 // All actions that can be triggered from a button click
 #[derive(Component, PartialEq)]
 enum MenuButtonAction {
@@ -100,12 +104,33 @@ fn setup_menu(
         });
 }
 
+#[derive(Component)]
+struct SelectedOption;
+
+// This system handles changing all buttons color based on mouse interaction
+fn button_system(
+    mut interaction_query: Query<
+        (&Interaction, &mut BackgroundColor, Option<&SelectedOption>),
+        (Changed<Interaction>, With<Button>),
+    >,
+) {
+    for (interaction, mut color, selected) in &mut interaction_query {
+        *color = match (*interaction, selected) {
+            (Interaction::Pressed, _) | (Interaction::None, Some(_)) => PRESSED_BUTTON.into(),
+            (Interaction::Hovered, Some(_)) => HOVERED_PRESSED_BUTTON.into(),
+            (Interaction::Hovered, None) => HOVERED_BUTTON.into(),
+            (Interaction::None, None) => NORMAL_BUTTON.into(),
+        }
+    }
+}
+
 fn menu_action(
     interaction_query: Query<
         (&Interaction, &MenuButtonAction),
         (Changed<Interaction>, With<Button>),
     >,
     mut app_exit_events: EventWriter<bevy::app::AppExit>,
+    mut appstate: ResMut<State<AppState>>
 ) {
     for (interaction, menu_button_action) in &interaction_query {
         if *interaction == Interaction::Pressed {
