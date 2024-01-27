@@ -1,1 +1,10 @@
 /target
+
+# vscode
+.vscode
+
+# fmod
+audio/.cache
+audio/.unsaved
+audio/.user
+audio/.restore
