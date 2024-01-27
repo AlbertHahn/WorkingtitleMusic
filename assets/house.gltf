@@ -3,6 +3,58 @@
 		"generator":"Khronos glTF Blender I/O v4.0.44",
 		"version":"2.0"
 	},
+	"extensionsUsed":[
+		"KHR_lights_punctual"
+	],
+	"extensionsRequired":[
+		"KHR_lights_punctual"
+	],
+	"extensions":{
+		"KHR_lights_punctual":{
+			"lights":[
+				{
+					"color":[
+						1,
+						1,
+						1
+					],
+					"intensity":543.5141306588226,
+					"type":"point",
+					"name":"Point.001"
+				},
+				{
+					"color":[
+						1,
+						1,
+						1
+					],
+					"intensity":543.5141306588226,
+					"type":"point",
+					"name":"Point.002"
+				},
+				{
+					"color":[
+						1,
+						1,
+						1
+					],
+					"intensity":543.5141306588226,
+					"type":"point",
+					"name":"Point.003"
+				},
+				{
+					"color":[
+						1,
+						1,
+						1
+					],
+					"intensity":543.5141306588226,
+					"type":"point",
+					"name":"Point.004"
+				}
+			]
+		}
+	},
 	"scene":0,
 	"scenes":[
 		{
@@ -25,7 +77,11 @@
 				28,
 				43,
 				58,
-				59
+				59,
+				60,
+				61,
+				62,
+				63
 			]
 		}
 	],
@@ -1212,6 +1268,82 @@
 				-6.443881988525391,
 				5.999999523162842,
 				-56.67598342895508
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":0
+				}
+			},
+			"name":"Point",
+			"rotation":[
+				-0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"translation":[
+				0,
+				0,
+				-49.389625549316406
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":1
+				}
+			},
+			"name":"Point.001",
+			"rotation":[
+				-0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"translation":[
+				22.23675537109375,
+				0,
+				-20.118967056274414
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":2
+				}
+			},
+			"name":"Point.002",
+			"rotation":[
+				-0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"translation":[
+				-24.203269958496094,
+				0,
+				-28.741382598876953
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":3
+				}
+			},
+			"name":"Point.003",
+			"rotation":[
+				-0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"translation":[
+				-14.673232078552246,
+				0,
+				-9.68130874633789
 			]
 		}
 	],

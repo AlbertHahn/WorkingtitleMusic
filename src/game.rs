@@ -7,6 +7,7 @@ use self::{assets::MyAssets, heatstroke::track_heatstroke};
 pub mod assets;
 mod heatstroke;
 mod mouse;
+mod pedestal;
 
 #[derive(Component)]
 pub struct InGame;
@@ -43,19 +44,23 @@ impl Plugin for MyGamePlugin {
     }
 }
 
-fn set_scene(mut commands: Commands) {
-    // commands.spawn((InGame, Camera3dBundle { ..default() }));
+fn set_scene(mut commands: Commands, assets: Res<MyAssets>) {
+    commands.spawn((InGame, Camera3dBundle { ..default() }));
 
     // spawn garage
-    // commands.spawn((
-    //     Name::new("Garage"),
-    //     // PbrBundle {
-    //     //     mesh: assets.garage_handle.clone(),
-    //     //     ..default()
-    //     // }
-    //     // Mesh {
-    //     //     scene: assets.garage_handle.clone(),
-    //     //     ..default()
-    //     // },
-    // ));
+    commands.spawn((
+        Name::new("Garage"),
+        SceneBundle {
+            scene: assets.garage_handle.clone(),
+            ..default()
+        }
+        // PbrBundle {
+        //     mesh: assets.garage_handle.clone(),
+        //     ..default()
+        // }
+        // Mesh {
+        //     scene: assets.garage_handle.clone(),
+        //     ..default()
+        // },
+    ));
 }

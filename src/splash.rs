@@ -19,8 +19,12 @@ impl Plugin for SplashPlugin {
             .add_systems(Startup, splash_setup)
             // .add_systems(OnEnter(AppState::Splash), splash_setup)
             // While in this state, run the `countdown` system
-            .add_systems(Update, countdown.run_if(in_state(AppState::Splash)))
+            // .add_systems(Update, countdown.run_if(in_state(AppState::Splash)))
             // When exiting the state, despawn everything that was spawned for this screen
+            // .add_systems(Update, goto_menu.run_if(||{
+
+            // }))
+            .add_systems(OnEnter(AssetLoadingState::Finished), goto_menu)
             .add_systems(OnExit(AppState::Splash), utility::despawn_screen::<OnSplashScreen>);
     }
 }
@@ -80,4 +84,9 @@ fn countdown(
     if timer.tick(time.delta()).finished() {
         game_state.set(AppState::Menu);
     }
+}
+
+fn goto_menu(mut state: ResMut<State<AppState>>){
+    // let _ = state.set(AppState::Menu).expect("error transitioning to menu");
+    debug!("survived state transition somehow");
 }
