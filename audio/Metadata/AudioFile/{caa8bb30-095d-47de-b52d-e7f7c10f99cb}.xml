@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{caa8bb30-095d-47de-b52d-e7f7c10f99cb}">
+		<property name="assetPath">
+			<value>music/Lvl1-Garage/Ambience/Lvl1_Amb_OutroEnv.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>15.46875283446712</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1d70fd8c-6ea2-4583-9569-ad338947b365}</destination>
+		</relationship>
+	</object>
+</objects>
