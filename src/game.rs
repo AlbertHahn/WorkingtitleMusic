@@ -2,7 +2,7 @@ use bevy::prelude::*;
 
 use crate::AppState;
 
-use self::heatstroke::track_heatstroke;
+use self::{assets::MyAssets, heatstroke::track_heatstroke};
 
 pub mod assets;
 mod heatstroke;
@@ -22,14 +22,20 @@ impl Plugin for MyGamePlugin {
             );
 
         // deal with menu camera
-        app.add_systems(OnEnter(AppState::Game), |mut q: Query<&mut Camera, With<crate::menu::MenuCamera>>|{
-            let mut camera = q.single_mut();
-            camera.is_active = false;
-        });
-        app.add_systems(OnExit(AppState::Game), |mut q: Query<&mut Camera, With<crate::menu::MenuCamera>>|{
-            let mut camera = q.single_mut();
-            camera.is_active = true;
-        });
+        app.add_systems(
+            OnEnter(AppState::Game),
+            |mut q: Query<&mut Camera, With<crate::menu::MenuCamera>>| {
+                let mut camera = q.single_mut();
+                camera.is_active = false;
+            },
+        );
+        app.add_systems(
+            OnExit(AppState::Game),
+            |mut q: Query<&mut Camera, With<crate::menu::MenuCamera>>| {
+                let mut camera = q.single_mut();
+                camera.is_active = true;
+            },
+        );
     }
 
     fn is_unique(&self) -> bool {
@@ -37,6 +43,19 @@ impl Plugin for MyGamePlugin {
     }
 }
 
-fn set_scene(mut commands: Commands) {
+fn set_scene(mut commands: Commands, assets: Res<MyAssets>) {
     commands.spawn((InGame, Camera3dBundle { ..default() }));
+
+    // spawn garage
+    commands.spawn((
+        Name::new("Garage"),
+        // PbrBundle {
+        //     mesh: assets.garage_handle.clone(),
+        //     ..default()
+        // }
+        // Mesh {
+        //     scene: assets.garage_handle.clone(),
+        //     ..default()
+        // },
+    ));
 }
