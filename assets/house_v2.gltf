@@ -59,9 +59,29 @@
 						0.8817054629325867,
 						0.7067026495933533
 					],
-					"intensity":21785948.656262916,
+					"intensity":1630542.3919764678,
 					"type":"point",
 					"name":"Point.014"
+				},
+				{
+					"color":[
+						1,
+						0.8817054629325867,
+						0.7067026495933533
+					],
+					"intensity":1630542.3919764678,
+					"type":"point",
+					"name":"Point.015"
+				},
+				{
+					"color":[
+						1,
+						1,
+						1
+					],
+					"intensity":0,
+					"type":"directional",
+					"name":"Sun"
 				}
 			]
 		}
@@ -105,7 +125,10 @@
 				31,
 				32,
 				33,
-				34
+				34,
+				35,
+				36,
+				37
 			]
 		}
 	],
@@ -230,9 +253,9 @@
 			"name":"Cube",
 			"rotation":[
 				0,
-				1,
+				0.7071065902709961,
 				0,
-				1.6292068494294654e-07
+				0.7071069478988647
 			],
 			"scale":[
 				0.45456230640411377,
@@ -240,9 +263,9 @@
 				0.45456230640411377
 			],
 			"translation":[
-				-13.050521850585938,
+				6.821985244750977,
 				-2.3701837062835693,
-				-52.704750061035156
+				-55.387229919433594
 			]
 		},
 		{
@@ -760,9 +783,9 @@
 				0.7071068286895752
 			],
 			"translation":[
-				-0.850078821182251,
+				-0.6985838413238525,
 				8.137791633605957,
-				-43.10013961791992
+				-44.16746520996094
 			]
 		},
 		{
@@ -779,9 +802,67 @@
 				0.7071068286895752
 			],
 			"translation":[
-				14.072303771972656,
-				29.72203254699707,
+				11.869231224060059,
+				15.031124114990234,
 				-13.475334167480469
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":5
+				}
+			},
+			"name":"Point.014_SUN.001",
+			"rotation":[
+				-0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"translation":[
+				11.869231224060059,
+				15.031124114990234,
+				7.441001892089844
+			]
+		},
+		{
+			"mesh":30,
+			"name":"Plane.004",
+			"rotation":[
+				0,
+				-0.9998857378959656,
+				-0.015118098817765713,
+				5.304184114152122e-08
+			],
+			"scale":[
+				-12.687263488769531,
+				-7.187537670135498,
+				-6.106767654418945
+			],
+			"translation":[
+				-1.74037504196167,
+				9.605802536010742,
+				-33.00761795043945
+			]
+		},
+		{
+			"extensions":{
+				"KHR_lights_punctual":{
+					"light":6
+				}
+			},
+			"name":"Sun",
+			"rotation":[
+				0.09519682079553604,
+				0.5915055274963379,
+				0.6179679036140442,
+				0.5090917944908142
+			],
+			"translation":[
+				-8.24898910522461,
+				-2.8330159187316895,
+				-44.18215560913086
 			]
 		}
 	],
@@ -1111,6 +1192,17 @@
 					0,
 					1
 				],
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"Material.029",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":19
+				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}
@@ -1636,6 +1728,20 @@
 					"material":19
 				}
 			]
+		},
+		{
+			"name":"Plane.005",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":144,
+						"NORMAL":145,
+						"TEXCOORD_0":146
+					},
+					"indices":147,
+					"material":20
+				}
+			]
 		}
 	],
 	"textures":[
@@ -1714,6 +1820,10 @@
 		{
 			"sampler":0,
 			"source":18
+		},
+		{
+			"sampler":0,
+			"source":19
 		}
 	],
 	"images":[
@@ -1811,6 +1921,11 @@
 			"mimeType":"image/png",
 			"name":"Emission_yellow",
 			"uri":"textures/Emission_yellow.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"yy",
+			"uri":"textures/yy.png"
 		}
 	],
 	"accessors":[
@@ -3090,6 +3205,40 @@
 			"componentType":5126,
 			"count":559,
 			"type":"VEC2"
+		},
+		{
+			"bufferView":144,
+			"componentType":5126,
+			"count":24,
+			"max":[
+				1,
+				0.04999999701976776,
+				1
+			],
+			"min":[
+				-1,
+				0,
+				-1
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":145,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":146,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":147,
+			"componentType":5123,
+			"count":36,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -3956,6 +4105,30 @@
 			"byteLength":4472,
 			"byteOffset":1876192,
 			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":1880664,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":1880952,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":1881240,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":72,
+			"byteOffset":1881432,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -3966,7 +4139,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1880664,
+			"byteLength":1881504,
 			"uri":"house_v2.bin"
 		}
 	]
