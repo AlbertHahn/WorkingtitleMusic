@@ -1,5 +1,4 @@
 use bevy::prelude::*;
-use const_str::unwrap;
 
 use crate::AppState;
 
@@ -138,14 +137,14 @@ fn menu_action(
         (Changed<Interaction>, With<Button>),
     >,
     mut app_exit_events: EventWriter<bevy::app::AppExit>,
-    mut appstate: ResMut<State<AppState>>
+    mut appstate: ResMut<NextState<AppState>>
 ) {
     for (interaction, menu_button_action) in &interaction_query {
         if *interaction == Interaction::Pressed {
             match menu_button_action {
                 MenuButtonAction::Quit => app_exit_events.send(bevy::app::AppExit),
                 MenuButtonAction::Play => {
-                    // appstate.set(AppState::Game).unwrap();
+                    appstate.set(AppState::Game);
                 }
             }
         }

@@ -76,17 +76,19 @@ enum AssetLoadingState{
     Finished
 }
 
-fn countdown(
-    mut game_state: ResMut<NextState<AppState>>,
-    time: Res<Time>,
-    mut timer: ResMut<SplashTimer>,
-) {
-    if timer.tick(time.delta()).finished() {
-        game_state.set(AppState::Menu);
-    }
-}
+// fn countdown(
+//     mut game_state: ResMut<NextState<AppState>>,
+//     time: Res<Time>,
+//     mut timer: ResMut<SplashTimer>,
+// ) {
+//     if timer.tick(time.delta()).finished() {
+//         game_state.set(AppState::Menu);
+//     }
+// }
 
-fn goto_menu(mut state: ResMut<State<AppState>>){
-    // let _ = state.set(AppState::Menu).expect("error transitioning to menu");
+fn goto_menu(mut state: ResMut<NextState<AppState>>){
+    info!("attempting to load menu");
+    let _ = state.set(AppState::Menu);
+    // .set(AppState::Menu).expect("error transitioning to menu");
     debug!("survived state transition somehow");
 }
