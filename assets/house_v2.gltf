@@ -2046,13 +2046,16 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.01959763760740397,
-				0.1483326341273938,
+				1,
+				1,
 				1
 			],
+			"emissiveTexture":{
+				"index":21
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":25.09022715724086
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.024",
@@ -2070,13 +2073,16 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.21212638911339263,
-				0.16034003025358898,
+				1,
+				1,
 				1
 			],
+			"emissiveTexture":{
+				"index":22
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":20.715697770375073
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.022",
@@ -2094,13 +2100,16 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0.5367255842652948,
 				1,
-				0.22092979199626203
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":23
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":19.225039969551972
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.023",
@@ -2142,21 +2151,24 @@
 		{
 			"doubleSided":true,
 			"emissiveFactor":[
-				0,
-				0.173059403086439,
+				1,
+				1,
 				1
 			],
+			"emissiveTexture":{
+				"index":24
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":41.08715616139307
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Lamp.002",
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
-					0.8015850782394409,
-					0.6321319937705994,
-					0.4173886775970459,
+					0.006722531281411648,
+					0,
+					0.8016670942306519,
 					1
 				],
 				"metallicFactor":0,
@@ -2167,12 +2179,15 @@
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
-				0.7893388035971032,
-				0.5229346507157419
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":25
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":3.0366038441666205
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Lamp.001",
@@ -2191,12 +2206,15 @@
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
-				0,
-				0.00027137186039835246
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":26
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":25.083630711415026
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.027",
@@ -2215,12 +2233,15 @@
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
-				0.2779393006715695,
-				0
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":27
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":20.709018998800502
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.026",
@@ -2239,12 +2260,15 @@
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
-				0.5178882446319448,
-				0
+				1,
+				1
 			],
+			"emissiveTexture":{
+				"index":28
+			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
-					"emissiveStrength":19.200367384753463
+					"emissiveStrength":80.5999984741211
 				}
 			},
 			"name":"Material.025",
@@ -3080,6 +3104,38 @@
 		{
 			"sampler":0,
 			"source":19
+		},
+		{
+			"sampler":0,
+			"source":20
+		},
+		{
+			"sampler":0,
+			"source":21
+		},
+		{
+			"sampler":0,
+			"source":22
+		},
+		{
+			"sampler":0,
+			"source":20
+		},
+		{
+			"sampler":0,
+			"source":23
+		},
+		{
+			"sampler":0,
+			"source":24
+		},
+		{
+			"sampler":0,
+			"source":25
+		},
+		{
+			"sampler":0,
+			"source":26
 		}
 	],
 	"images":[
@@ -3182,6 +3238,41 @@
 			"mimeType":"image/png",
 			"name":"frame",
 			"uri":"textures/frame.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_Blue",
+			"uri":"textures/Emission_Blue.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_purple",
+			"uri":"textures/Emission_purple.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_green",
+			"uri":"textures/Emission_green.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_blank",
+			"uri":"textures/Emission_blank.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_red",
+			"uri":"textures/Emission_red.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_orange",
+			"uri":"textures/Emission_orange.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"Emission_yellow",
+			"uri":"textures/Emission_yellow.png"
 		}
 	],
 	"skins":[
