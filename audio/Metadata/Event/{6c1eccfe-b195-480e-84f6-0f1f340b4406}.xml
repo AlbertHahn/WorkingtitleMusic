@@ -264,7 +264,6 @@
 		</property>
 		<relationship name="parameters">
 			<destination>{b04a7535-f189-46bf-949a-1b02a6cba1ad}</destination>
-			<destination>{74a7e6af-742f-4ab8-94a4-cd3d002e484f}</destination>
 			<destination>{efff88b5-17f8-4b12-8a14-6dcda187e328}</destination>
 			<destination>{08221cc2-1fe1-48b0-bd99-5e543d94d0b1}</destination>
 		</relationship>
@@ -427,11 +426,6 @@
 	<object class="ParameterProperty" id="{b04a7535-f189-46bf-949a-1b02a6cba1ad}">
 		<relationship name="parameter">
 			<destination>{5d3748f0-ec02-474c-89e5-0237658de51c}</destination>
-		</relationship>
-	</object>
-	<object class="ParameterProperty" id="{74a7e6af-742f-4ab8-94a4-cd3d002e484f}">
-		<relationship name="parameter">
-			<destination>{ba46ec8d-0a85-49c2-b393-6143e6ce1e8b}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProperty" id="{efff88b5-17f8-4b12-8a14-6dcda187e328}">
