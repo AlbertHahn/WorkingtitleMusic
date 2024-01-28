@@ -7,7 +7,7 @@ use self::{assets::MyAssets, heatstroke::track_heatstroke};
 pub mod assets;
 mod heatstroke;
 mod mouse;
-mod pedestal;
+//mod pedestal;
 
 #[derive(Component)]
 pub struct InGame;
