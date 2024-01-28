@@ -4,6 +4,8 @@ It's the hottest day of the year and the equally hottest band is about to perfor
 -------------------------------------
 A group of musicians, they want to get fame.
 But there is no instructor, so they go insane.
+All musicians want to gain fame. 
+But this heat drives them insane​.
 Can YOU help them, so they grow big?
 Or will they end up als little pig?
 Can you help them keep their tune?
