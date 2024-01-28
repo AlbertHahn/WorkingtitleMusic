@@ -102,15 +102,24 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
     // Spawn pedestals
     let pedestals = vec![
         ("pedestal1".to_string(), Vec3::new(4.2, -3.6, -47.5)),
-        ("pedestal2".to_string(), Vec3::new(1.0, 2.0, -3.0)),
-        ("pedestal3".to_string(), Vec3::new(1.0, 2.0, -3.0)),
+        ("pedestal2".to_string(), Vec3::new(-7.9, -0.8, -48.8)),
+        ("pedestal3".to_string(), Vec3::new(-3.2, -1.7, -48.8)),
     ];
 
-    assets_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
+    pbr_bundle_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
+
+    let musicians = vec![
+        ("musicians1".to_string(), Vec3::new(4.2, 0.5, -47.5)),
+        ("musicians2".to_string(), Vec3::new(-7.9, 0.5, -48.8)),
+        ("musicians3".to_string(), Vec3::new(-3.2, 0.5, -48.8)),
+    ];
+
+    scene_spawner(&mut commands, assets.musician_guitar_scene.clone() , &musicians);
+
 }
 
 
-fn assets_spawner(
+fn pbr_bundle_spawner(
     mut commands : &mut Commands,
     mesh_handle: Handle<Mesh>,
     properties: &[(String, Vec3)],
@@ -122,6 +131,28 @@ fn assets_spawner(
                 mesh: mesh_handle.clone(),
                 transform: Transform::from_translation(*coordinates),
                 ..Default::default()
+            },
+            PickableBundle::default(), // <- Makes the mesh pickable.
+            On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
+                target_commands.despawn();
+            }),
+        ));
+    }
+}
+
+
+fn scene_spawner(
+    mut commands : &mut Commands,
+    scene_handle: Handle<Scene>,
+    properties: &[(String, Vec3)],
+) {
+    for (name, coordinates) in properties {
+        commands.spawn((
+            Name::new(name.clone()),
+            SceneBundle {
+                scene: scene_handle.clone(),
+                transform: Transform::from_translation(*coordinates),
+                ..default()
             },
             PickableBundle::default(), // <- Makes the mesh pickable.
             On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {

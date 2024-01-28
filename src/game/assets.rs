@@ -5,10 +5,8 @@ use bevy_asset_loader::asset_collection::AssetCollection;
 pub struct MyAssets {
     #[asset(path = "house_v2.gltf#Scene0")]
     pub garage_handle: Handle<Scene>,
-    #[asset(path = "garage musician default.gltf#Mesh0")]
-    pub musician_default: Handle<Mesh>,
-    #[asset(path = "garage musician default.gltf#Material0")]
-    pub musician_default_material: Handle<StandardMaterial>,
+    #[asset(path = "garage musician guitar.gltf#Scene0")]
+    pub musician_guitar_scene: Handle<Scene>,
     #[asset(path = "pedestal.gltf#Mesh0")]
     pub pedestal_handle: Handle<Mesh>,
     #[asset(path ="textures/facialexpressions/maleeyes1/", collection(typed))]
