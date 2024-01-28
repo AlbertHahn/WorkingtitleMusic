@@ -103,9 +103,10 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
 
     // Spawn pedestals
     let pedestals = vec![
-        ("pedestal1".to_string(), Vec3::new(4.2, -3.6, -47.5)),
+        ("pedestal1".to_string(), Vec3::new(3.2, -1.6, -40.5)),
         ("pedestal2".to_string(), Vec3::new(-7.9, -0.8, -48.8)),
-        ("pedestal3".to_string(), Vec3::new(-3.2, -1.7, -48.8)),
+        ("pedestal3".to_string(), Vec3::new(-5.2, -1.7, -40.8)),
+        ("pedestal4".to_string(), Vec3::new(8.2, -1.7, -48.8)),
     ];
 
     // pbr_bundle_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
@@ -116,13 +117,25 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
     
     debug!("set pedestal");
     
-    let musicians = vec![
-        ("musicians1".to_string(), Vec3::new(4.2, 0.5, -47.5)),
-        ("musicians2".to_string(), Vec3::new(-7.9, 0.5, -48.8)),
-        ("musicians3".to_string(), Vec3::new(-3.2, 0.5, -48.8)),
+    let guitar = vec![
+        ("guitar".to_string(), Vec3::new(3.2, -1.6, -40.5)),
+    ];
+    let drums = vec![
+        ("drums".to_string(), Vec3::new(-7.9, -0.8, -48.8)),
+    ];
+    let streicher = vec![
+        ("streicher".to_string(), Vec3::new(-5.2, -1.7, -40.8)),
     ];
 
-    scene_spawner(&mut commands, assets.musician_guitar_scene.clone() , &musicians);
+    let keyboard = vec![
+        ("keyboard".to_string(), Vec3::new(8.2, -1.7, -48.8)),
+    ];
+
+    scene_spawner(&mut commands, assets.musician_guitar_scene.clone() , &guitar);
+    scene_spawner(&mut commands, assets.musician_drums_scene.clone() , &drums);
+    scene_spawner(&mut commands, assets.musician_streicher_scene.clone() , &streicher);
+    scene_spawner(&mut commands, assets.musician_keyboard_scene.clone() , &keyboard);
+
 }
 
 

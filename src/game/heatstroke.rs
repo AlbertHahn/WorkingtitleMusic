@@ -9,6 +9,7 @@ use crate::AppState;
 pub struct HeastrokeResource{
     passed_out: f32,
     timer: Timer,
+    is_heatstroke: bool,
     pub pedestal_id: Entity,
     pub musician_id: Entity,
 }
@@ -18,6 +19,7 @@ impl Default for HeastrokeResource{
         HeastrokeResource {
             passed_out: 0.0,
             timer: Timer::new(Duration::from_secs(8), TimerMode::Once),
+            is_heatstroke: false,
             pedestal_id: Entity::PLACEHOLDER,
             musician_id: Entity::PLACEHOLDER,
         }
@@ -36,9 +38,16 @@ pub fn watch_heatstroke(mut studio: ResMut<FmodStudio>, mut heatstroke: EventRea
 
     if heatstroke.is_empty() {
         
+    } else {
+        tracker.is_heatstroke = true;
+        studio.0.set_parameter_by_name("Slot1_A_Detune", 0.8, true).expect("unable to set fmod parameter");
     }
 
-    // studio.0.set_parameter_by_name("Slot1_A_Detune", 0.5, true).expect("unable to set fmod parameter");
+    if tracker.is_heatstroke == true {
+        // tracker.passed_out += 
+        tracker.timer.tick(time.delta());
+    }
+
 
     // info!("modulating fmod - heatstroke")
 }

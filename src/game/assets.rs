@@ -7,6 +7,12 @@ pub struct MyAssets {
     pub garage_handle: Handle<Scene>,
     #[asset(path = "garage musician guitar.gltf#Scene0")]
     pub musician_guitar_scene: Handle<Scene>,
+    #[asset(path = "garage musician drums.gltf#Scene0")]
+    pub musician_drums_scene: Handle<Scene>,
+    #[asset(path = "garage musician streicher.gltf#Scene0")]
+    pub musician_streicher_scene: Handle<Scene>,
+    #[asset(path = "garage musician keyboard.gltf#Scene0")]
+    pub musician_keyboard_scene: Handle<Scene>,
     #[asset(path = "pedestal.gltf#Mesh0")]
     pub pedestal_handle: Handle<Mesh>,
     #[asset(path ="textures/facialexpressions/maleeyes1/", collection(typed))]
