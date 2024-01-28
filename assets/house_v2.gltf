@@ -2358,12 +2358,9 @@
 		{
 			"doubleSided":true,
 			"name":"Material.001",
-			"normalTexture":{
-				"index":22
-			},
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":23
+					"index":22
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.885454535484314
@@ -2377,7 +2374,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":24
+				"index":23
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2404,7 +2401,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":25
+				"index":24
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2431,7 +2428,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":26
+				"index":25
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2482,7 +2479,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":27
+				"index":26
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2509,7 +2506,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":28
+				"index":27
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2536,7 +2533,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":29
+				"index":28
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2563,7 +2560,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":30
+				"index":29
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -2590,7 +2587,7 @@
 				1
 			],
 			"emissiveTexture":{
-				"index":31
+				"index":30
 			},
 			"extensions":{
 				"KHR_materials_emissive_strength":{
@@ -3427,10 +3424,6 @@
 		},
 		{
 			"sampler":0,
-			"source":21
-		},
-		{
-			"sampler":0,
 			"source":22
 		},
 		{
@@ -3505,8 +3498,8 @@
 		},
 		{
 			"mimeType":"image/png",
-			"name":"house",
-			"uri":"textures/house.png"
+			"name":"white-painted-drip-texture-background",
+			"uri":"textures/white-painted-drip-texture-background.png"
 		},
 		{
 			"mimeType":"image/png",
