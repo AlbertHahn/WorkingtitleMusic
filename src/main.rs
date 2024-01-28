@@ -43,8 +43,8 @@ fn main() {
         ;
     #[cfg(debug_assertions)]
     {
-        app.register_type::<AppState>();
-        app.add_plugins(StateInspectorPlugin::<AppState>::default());
+        // app.register_type::<AppState>();
+        // app.add_plugins(StateInspectorPlugin::<AppState>::default());
         app.add_plugins(WorldInspectorPlugin::new());
     }
 

@@ -3,19 +3,6 @@
 version = 3
 
 [[package]]
-name = "WorkingtitleMusic"
-version = "0.1.0"
-dependencies = [
- "bevy",
- "bevy-inspector-egui",
- "bevy_asset_loader",
- "bevy_fmod",
- "bevy_mod_picking",
- "const-str",
- "fs_extra",
-]
-
-[[package]]
 name = "ab_glyph"
 version = "0.2.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1592,6 +1579,20 @@ dependencies = [
  "wasm-bindgen",
  "web-sys",
  "winit",
+]
+
+[[package]]
+name = "big_band_orchestra"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+ "bevy-inspector-egui",
+ "bevy_asset_loader",
+ "bevy_fmod",
+ "bevy_mod_picking",
+ "const-str",
+ "fs_extra",
+ "libfmod",
 ]
 
 [[package]]
