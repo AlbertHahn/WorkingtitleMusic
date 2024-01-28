@@ -6,7 +6,7 @@ use bevy_mod_picking::prelude::*;
 
 use crate::{main, AppState};
 
-use self::{assets::MyAssets, heatstroke::track_heatstroke, audio::{FmodEvent, setup_fmod_callbacks}, window::create_musician_window};
+use self::{assets::MyAssets, heatstroke::{track_heatstroke, trigger_heatstroke, Heatstroke, watch_heatstroke, HeastrokeResource}, audio::{FmodEvent, setup_fmod_callbacks}, window::create_musician_window};
 
 pub mod assets;
 mod heatstroke;
@@ -25,7 +25,9 @@ impl Plugin for MyGamePlugin {
             OnEnter(AppState::Game),
             (set_scene, mouse::mouse_setup, setup_fmod_callbacks),
         )
-        .add_systems(Update, track_heatstroke.run_if(in_state(AppState::Game)))
+        .add_event::<Heatstroke>()
+        .init_resource::<HeastrokeResource>()
+        .add_systems(Update, (track_heatstroke, trigger_heatstroke, watch_heatstroke))
         .add_systems(
             OnExit(AppState::Game),
             crate::utility::despawn_screen::<InGame>,
@@ -63,7 +65,7 @@ impl Plugin for MyGamePlugin {
 }
 
 
-fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStudio>) {
+fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStudio>, mut heatstroke_resource: ResMut<HeastrokeResource>) {
     // create camera for the level
     commands.spawn((InGame, Camera3dBundle { ..default() }));
 
@@ -106,8 +108,14 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
         ("pedestal3".to_string(), Vec3::new(-3.2, -1.7, -48.8)),
     ];
 
-    pbr_bundle_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
+    // pbr_bundle_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
 
+    let entities = pbr_bundle_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
+
+    heatstroke_resource.into_inner().pedestal_id = *entities.get(1).expect("pedestal selection failed");
+    
+    debug!("set pedestal");
+    
     let musicians = vec![
         ("musicians1".to_string(), Vec3::new(4.2, 0.5, -47.5)),
         ("musicians2".to_string(), Vec3::new(-7.9, 0.5, -48.8)),
@@ -115,7 +123,6 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
     ];
 
     scene_spawner(&mut commands, assets.musician_guitar_scene.clone() , &musicians);
-
 }
 
 
@@ -123,9 +130,10 @@ fn pbr_bundle_spawner(
     mut commands : &mut Commands,
     mesh_handle: Handle<Mesh>,
     properties: &[(String, Vec3)],
-) {
+) -> std::vec::Vec<bevy::prelude::Entity> {
+    let mut entities = Vec::<Entity>::new();
     for (name, coordinates) in properties {
-        commands.spawn((
+        let e = commands.spawn((
             Name::new(name.clone()),
             PbrBundle {
                 mesh: mesh_handle.clone(),
@@ -137,7 +145,9 @@ fn pbr_bundle_spawner(
                 target_commands.despawn();
             }),
         ));
+        entities.push(e.id());
     }
+    return entities
 }
 
 
