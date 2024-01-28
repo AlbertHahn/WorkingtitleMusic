@@ -1,6 +1,7 @@
 use bevy::prelude::*;
+use bevy_fmod::fmod_studio::FmodStudio;
 
-use crate::AppState;
+use crate::{main, AppState};
 
 use self::{assets::MyAssets, heatstroke::track_heatstroke};
 
@@ -44,8 +45,20 @@ impl Plugin for MyGamePlugin {
     }
 }
 
-fn set_scene(mut commands: Commands, assets: Res<MyAssets>) {
+fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStudio>) {
+    // create camera for the level
     commands.spawn((InGame, Camera3dBundle { ..default() }));
+
+    // start level track
+    let event_description = studio.0.get_event("event:/Levels/1/main").unwrap();
+
+    let main_menu_player = bevy_fmod::prelude::AudioSource::new(event_description);
+    main_menu_player.play();
+    commands.spawn((InGame, main_menu_player));
+
+    // main_menu_player
+    //     .event_instance
+    //     .set_callback(|| {}, callbackmask);
 
     // spawn garage
     commands.spawn((
@@ -53,14 +66,6 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>) {
         SceneBundle {
             scene: assets.garage_handle.clone(),
             ..default()
-        }
-        // PbrBundle {
-        //     mesh: assets.garage_handle.clone(),
-        //     ..default()
-        // }
-        // Mesh {
-        //     scene: assets.garage_handle.clone(),
-        //     ..default()
-        // },
+        },
     ));
 }
