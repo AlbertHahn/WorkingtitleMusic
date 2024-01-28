@@ -1591,6 +1591,7 @@ dependencies = [
  "bevy_fmod",
  "bevy_mod_picking",
  "const-str",
+ "crossbeam-channel",
  "fs_extra",
  "libfmod",
 ]

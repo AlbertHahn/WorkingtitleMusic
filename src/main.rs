@@ -1,12 +1,12 @@
 use bevy::prelude::*;
 use bevy_fmod::fmod_plugin::FmodPlugin;
-use bevy_inspector_egui::quick::WorldInspectorPlugin;
 use bevy_inspector_egui::quick::StateInspectorPlugin;
+use bevy_inspector_egui::quick::WorldInspectorPlugin;
 
 mod game;
+mod menu;
 mod splash;
 mod utility;
-mod menu;
 
 #[derive(Clone, Copy, Default, Eq, PartialEq, Debug, Hash, States, Reflect)]
 pub enum AppState {
@@ -48,13 +48,11 @@ fn main() {
         app.add_plugins(WorldInspectorPlugin::new());
     }
 
-    app.add_systems(Startup, |mut commands: Commands|{
+    app.add_systems(Startup, |mut commands: Commands| {
         commands.spawn((
             Name::new("MenuCamera"),
             menu::MenuCamera,
-            Camera2dBundle {
-                ..default()
-            }
+            Camera2dBundle { ..default() },
         ));
     });
 
