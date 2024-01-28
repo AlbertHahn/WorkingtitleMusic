@@ -1,9 +1,6 @@
-use std::ffi::c_void;
-
 use bevy::prelude::*;
 use bevy_fmod::fmod_studio::FmodStudio;
-use libfmod::ffi::{FMOD_STUDIO_EVENT_CALLBACK_TYPE, FMOD_STUDIO_EVENTINSTANCE, FMOD_RESULT};
-// use libfmod::ffi;
+use bevy_mod_picking::prelude::*;
 
 use crate::{main, AppState};
 
@@ -49,14 +46,6 @@ impl Plugin for MyGamePlugin {
     }
 }
 
-
-enum LevelEvent {
-    TruiggerHeatstroke
-
-}
-#[derive(Event)]
-struct LevelEndEvent;
-
 fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStudio>) {
     // create camera for the level
     commands.spawn((InGame, Camera3dBundle { ..default() }));
@@ -68,43 +57,9 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
     main_menu_player.play();
     commands.spawn((InGame, main_menu_player));
 
-
-    // #[extern C]
-
-    // FMOD callbacks
-
-    #[no_mangle]
-    unsafe extern "C" fn heatstroke_callback(type_: FMOD_STUDIO_EVENT_CALLBACK_TYPE, event: *mut FMOD_STUDIO_EVENTINSTANCE, parameters: *mut c_void) -> FMOD_RESULT{
-        debug!("Hello from fmod!");
-        debug!("{:?}   {:?}", type_, event);
-        info!("hmmm... heatstroke?");
-        return libfmod::ffi::FMOD_OK;
-    }
-    let _ = studio.0.get_event("event:/triggers/trigger_heatstroke").unwrap().set_callback( Some(heatstroke_callback), 0x0000_0004u32);
-
-
-
-    #[no_mangle]
-    unsafe extern "C" fn level_end_callback(type_: FMOD_STUDIO_EVENT_CALLBACK_TYPE, event: *mut FMOD_STUDIO_EVENTINSTANCE, parameters: *mut c_void) -> FMOD_RESULT{
-        debug!("Hello from fmod!");
-        debug!("{:?}   {:?}", type_, event);
-        info!("level complete!");
-        return libfmod::ffi::FMOD_OK;
-    }
-    let _ = studio.0.get_event("event:/triggers/trigger_levelend").unwrap().set_callback( Some(level_end_callback), 0x0000_0004u32);
-
-
-    // let mycallback: Option<unsafe extern "C" fn(u32, *mut libfmod::ffi::FMOD_STUDIO_EVENTINSTANCE, *mut std::ffi::c_void) -> i32> = Some(|event_type, event, other|{
-
-    // });
-
-    // // let mycallback = Option<|num, fmod_event, test|{
-    // //     printf!("test");
-    // // }>;
-
     // main_menu_player
     //     .event_instance
-    //     .set_callback( Some(mycallback), 0x00020000_u32);
+    //     .set_callback(|| {}, callbackmask);
 
     // spawn garage
     commands.spawn((
@@ -114,4 +69,19 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
             ..default()
         },
     ));
+
+    commands.spawn((
+        Name::new("pedestal"),
+        PbrBundle {
+            mesh: assets.pedestal_handle.clone(),
+            ..default()
+        },
+        PickableBundle::default(), // <- Makes the mesh pickable.
+        On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {    
+            target_commands.despawn();
+        })
+    ));
+
+
+
 }
