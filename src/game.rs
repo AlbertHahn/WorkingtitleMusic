@@ -99,15 +99,34 @@ fn set_scene(mut commands: Commands, assets: Res<MyAssets>, studio: Res<FmodStud
         },
     ));
 
-    commands.spawn((
-        Name::new("pedestal"),
-        PbrBundle {
-            mesh: assets.pedestal_handle.clone(),
-            ..default()
-        },
-        PickableBundle::default(), // <- Makes the mesh pickable.
-        On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
-            target_commands.despawn();
-        }),
-    ));
+    // Spawn pedestals
+    let pedestals = vec![
+        ("pedestal1".to_string(), Vec3::new(4.2, -3.6, -47.5)),
+        ("pedestal2".to_string(), Vec3::new(1.0, 2.0, -3.0)),
+        ("pedestal3".to_string(), Vec3::new(1.0, 2.0, -3.0)),
+    ];
+
+    assets_spawner(&mut commands, assets.pedestal_handle.clone() , &pedestals);
+}
+
+
+fn assets_spawner(
+    mut commands : &mut Commands,
+    mesh_handle: Handle<Mesh>,
+    properties: &[(String, Vec3)],
+) {
+    for (name, coordinates) in properties {
+        commands.spawn((
+            Name::new(name.clone()),
+            PbrBundle {
+                mesh: mesh_handle.clone(),
+                transform: Transform::from_translation(*coordinates),
+                ..Default::default()
+            },
+            PickableBundle::default(), // <- Makes the mesh pickable.
+            On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
+                target_commands.despawn();
+            }),
+        ));
+    }
 }

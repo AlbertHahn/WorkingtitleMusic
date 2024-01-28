@@ -2,6 +2,7 @@ use bevy::prelude::*;
 use bevy_fmod::fmod_plugin::FmodPlugin;
 use bevy_inspector_egui::quick::StateInspectorPlugin;
 use bevy_inspector_egui::quick::WorldInspectorPlugin;
+use bevy_mod_picking::prelude::*;
 
 mod game;
 mod menu;
@@ -31,10 +32,16 @@ fn main() {
 
     let mut app = App::new();
     app
-        .add_plugins(DefaultPlugins)
+        //.add_plugins(DefaultPlugins)
         .add_plugins(FmodPlugin {
             audio_banks_paths: &FMOD_BANKS,
         })
+        .add_plugins((
+            DefaultPlugins.set(low_latency_window_plugin()),
+            DefaultPickingPlugins
+                .build()
+                .disable::<DebugPickingPlugin>(),
+        ))
         .add_plugins(game::MyGamePlugin)
         .add_plugins(menu::MenuPlugin)
         .add_plugins(splash::SplashPlugin)
