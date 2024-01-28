@@ -1592,6 +1592,7 @@ dependencies = [
  "bevy_mod_picking",
  "const-str",
  "fs_extra",
+ "libfmod",
 ]
 
 [[package]]

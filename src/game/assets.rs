@@ -3,7 +3,7 @@ use bevy_asset_loader::asset_collection::AssetCollection;
 
 #[derive(AssetCollection, Resource)]
 pub struct MyAssets {
-    #[asset(path = "house.gltf#Scene0")]
+    #[asset(path = "house_v2.gltf#Scene0")]
     pub garage_handle: Handle<Scene>,
     #[asset(path = "garage musician default.gltf#Mesh0")]
     pub musician_default: Handle<Mesh>,
