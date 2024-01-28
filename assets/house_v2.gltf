@@ -3509,9 +3509,9 @@
 			"uri":"textures/house.png"
 		},
 		{
-			"mimeType":"image/jpeg",
+			"mimeType":"image/png",
 			"name":"concrete_smooth_plus_holes_texture_p",
-			"uri":"textures/concrete_smooth_plus_holes_texture_p.jpg"
+			"uri":"textures/concrete_smooth_plus_holes_texture_p.png"
 		},
 		{
 			"mimeType":"image/png",
@@ -3569,9 +3569,9 @@
 			"uri":"textures/frame.png"
 		},
 		{
-			"mimeType":"image/jpeg",
+			"mimeType":"image/png",
 			"name":"Tileable concrete asphalt road floor texture",
-			"uri":"textures/Tileable%20concrete%20asphalt%20road%20floor%20texture.jpg"
+			"uri":"textures/Tileable%20concrete%20asphalt%20road%20floor%20texture.png"
 		},
 		{
 			"mimeType":"image/png",
