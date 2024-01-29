@@ -552,201 +552,158 @@
 			"samplers":[
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":30
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":31
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":32
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":33
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":34
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":35
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":36
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":37
 				},
 				{
 					"input":38,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":39
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":40
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":41
 				},
 				{
 					"input":38,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":42
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":43
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":44
 				},
 				{
 					"input":38,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":45
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":46
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":47
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":48
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":49
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":50
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":51
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":52
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":53
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":54
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":55
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":56
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":57
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":58
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":59
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":60
 				},
 				{
 					"input":29,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":61
-				}
-			]
-		},
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":15,
-						"path":"rotation"
-					}
-				},
-				{
-					"sampler":1,
-					"target":{
-						"node":15,
-						"path":"translation"
-					}
-				},
-				{
-					"sampler":2,
-					"target":{
-						"node":15,
-						"path":"scale"
-					}
-				}
-			],
-			"name":"guitarAction",
-			"samplers":[
-				{
-					"input":62,
-					"interpolation":"LINEAR",
-					"output":63
-				},
-				{
-					"input":62,
-					"interpolation":"LINEAR",
-					"output":64
-				},
-				{
-					"input":62,
-					"interpolation":"LINEAR",
-					"output":65
 				}
 			]
 		}
@@ -1341,36 +1298,6 @@
 			"componentType":5126,
 			"count":13,
 			"type":"VEC4"
-		},
-		{
-			"bufferView":62,
-			"componentType":5126,
-			"count":1,
-			"max":[
-				0
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":63,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":64,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":65,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -1711,26 +1638,6 @@
 			"buffer":0,
 			"byteLength":208,
 			"byteOffset":1169080
-		},
-		{
-			"buffer":0,
-			"byteLength":4,
-			"byteOffset":1169288
-		},
-		{
-			"buffer":0,
-			"byteLength":16,
-			"byteOffset":1169292
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":1169308
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":1169320
 		}
 	],
 	"samplers":[
@@ -1741,7 +1648,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1169332,
+			"byteLength":1169288,
 			"uri":"garage%20musician%20Guitar.bin"
 		}
 	]

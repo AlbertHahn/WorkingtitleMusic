@@ -572,21 +572,21 @@
 				{
 					"sampler":31,
 					"target":{
-						"node":6,
+						"node":7,
 						"path":"scale"
 					}
 				},
 				{
 					"sampler":32,
 					"target":{
-						"node":7,
+						"node":5,
 						"path":"scale"
 					}
 				},
 				{
 					"sampler":33,
 					"target":{
-						"node":5,
+						"node":6,
 						"path":"scale"
 					}
 				}
@@ -595,157 +595,157 @@
 			"samplers":[
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":36
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":37
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":38
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":39
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":40
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":41
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":42
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":43
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":44
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":45
 				},
 				{
 					"input":46,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":47
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":48
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":49
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":50
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":51
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":52
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":53
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":54
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":55
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":56
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":57
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":58
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":59
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":60
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":61
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":62
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":63
 				},
 				{
 					"input":35,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":64
 				},
 				{
 					"input":65,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":66
 				},
 				{
 					"input":65,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":67
 				},
 				{
 					"input":65,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":68
 				},
 				{
@@ -762,49 +762,6 @@
 					"input":69,
 					"interpolation":"STEP",
 					"output":72
-				}
-			]
-		},
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":16,
-						"path":"translation"
-					}
-				},
-				{
-					"sampler":1,
-					"target":{
-						"node":16,
-						"path":"rotation"
-					}
-				},
-				{
-					"sampler":2,
-					"target":{
-						"node":16,
-						"path":"scale"
-					}
-				}
-			],
-			"name":"StreicherAction",
-			"samplers":[
-				{
-					"input":73,
-					"interpolation":"LINEAR",
-					"output":74
-				},
-				{
-					"input":73,
-					"interpolation":"LINEAR",
-					"output":75
-				},
-				{
-					"input":73,
-					"interpolation":"LINEAR",
-					"output":76
 				}
 			]
 		}
@@ -1507,36 +1464,6 @@
 			"componentType":5126,
 			"count":2,
 			"type":"VEC3"
-		},
-		{
-			"bufferView":73,
-			"componentType":5126,
-			"count":1,
-			"max":[
-				0
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":74,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":75,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":76,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -1938,26 +1865,6 @@
 			"buffer":0,
 			"byteLength":24,
 			"byteOffset":849524
-		},
-		{
-			"buffer":0,
-			"byteLength":4,
-			"byteOffset":849548
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":849552
-		},
-		{
-			"buffer":0,
-			"byteLength":16,
-			"byteOffset":849564
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":849580
 		}
 	],
 	"samplers":[
@@ -1968,7 +1875,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":849592,
+			"byteLength":849548,
 			"uri":"garage%20musician%20streicher.bin"
 		}
 	]

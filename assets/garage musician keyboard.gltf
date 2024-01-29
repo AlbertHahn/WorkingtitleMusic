@@ -988,216 +988,173 @@
 			"samplers":[
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":79
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":80
 				},
 				{
 					"input":40,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":81
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":82
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":83
 				},
 				{
 					"input":84,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":85
 				},
 				{
 					"input":86,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":87
 				},
 				{
 					"input":86,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":88
 				},
 				{
 					"input":89,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":90
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":91
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":92
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":93
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":94
 				},
 				{
 					"input":40,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":95
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":96
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":97
 				},
 				{
 					"input":59,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":98
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":99
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":100
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":101
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":102
 				},
 				{
 					"input":40,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":103
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":104
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":105
 				},
 				{
 					"input":59,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":106
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":107
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":108
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":109
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":110
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":111
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":112
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":113
 				},
 				{
 					"input":78,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":114
 				},
 				{
 					"input":40,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":115
-				}
-			]
-		},
-		{
-			"channels":[
-				{
-					"sampler":0,
-					"target":{
-						"node":15,
-						"path":"scale"
-					}
-				},
-				{
-					"sampler":1,
-					"target":{
-						"node":15,
-						"path":"rotation"
-					}
-				},
-				{
-					"sampler":2,
-					"target":{
-						"node":15,
-						"path":"translation"
-					}
-				}
-			],
-			"name":"keyboardAction",
-			"samplers":[
-				{
-					"input":116,
-					"interpolation":"LINEAR",
-					"output":117
-				},
-				{
-					"input":116,
-					"interpolation":"LINEAR",
-					"output":118
-				},
-				{
-					"input":116,
-					"interpolation":"LINEAR",
-					"output":119
 				}
 			]
 		}
@@ -2243,36 +2200,6 @@
 			"componentType":5126,
 			"count":4,
 			"type":"VEC3"
-		},
-		{
-			"bufferView":116,
-			"componentType":5126,
-			"count":1,
-			"max":[
-				0
-			],
-			"min":[
-				0
-			],
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":117,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":118,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC4"
-		},
-		{
-			"bufferView":119,
-			"componentType":5126,
-			"count":1,
-			"type":"VEC3"
 		}
 	],
 	"bufferViews":[
@@ -2891,26 +2818,6 @@
 			"buffer":0,
 			"byteLength":48,
 			"byteOffset":1658152
-		},
-		{
-			"buffer":0,
-			"byteLength":4,
-			"byteOffset":1658200
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":1658204
-		},
-		{
-			"buffer":0,
-			"byteLength":16,
-			"byteOffset":1658216
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":1658232
 		}
 	],
 	"samplers":[
@@ -2921,7 +2828,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1658244,
+			"byteLength":1658200,
 			"uri":"garage%20musician%20keyboard.bin"
 		}
 	]
