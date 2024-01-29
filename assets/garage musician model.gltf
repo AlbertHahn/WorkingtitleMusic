@@ -121,7 +121,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":1896,
+			"count":1966,
 			"max":[
 				5.708709716796875,
 				10.638444900512695,
@@ -129,7 +129,7 @@
 			],
 			"min":[
 				-5.708709716796875,
-				-1.4007600545883179,
+				-5.370059490203857,
 				-1.1745295524597168
 			],
 			"type":"VEC3"
@@ -137,19 +137,19 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":1896,
+			"count":1966,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":1896,
+			"count":1966,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":2718,
+			"count":2820,
 			"type":"SCALAR"
 		},
 		{
@@ -258,104 +258,104 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":22752,
+			"byteLength":23592,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":22752,
-			"byteOffset":22752,
+			"byteLength":23592,
+			"byteOffset":23592,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":15168,
-			"byteOffset":45504,
+			"byteLength":15728,
+			"byteOffset":47184,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":5436,
-			"byteOffset":60672,
+			"byteLength":5640,
+			"byteOffset":62912,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":32652,
-			"byteOffset":66108,
+			"byteOffset":68552,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":32652,
-			"byteOffset":98760,
+			"byteOffset":101204,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":21768,
-			"byteOffset":131412,
+			"byteOffset":133856,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":6510,
-			"byteOffset":153180,
+			"byteOffset":155624,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":13248,
-			"byteOffset":159692,
+			"byteOffset":162136,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":13248,
-			"byteOffset":172940,
+			"byteOffset":175384,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":8832,
-			"byteOffset":186188,
+			"byteOffset":188632,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3264,
-			"byteOffset":195020,
+			"byteOffset":197464,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":5616,
-			"byteOffset":198284,
+			"byteOffset":200728,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":5616,
-			"byteOffset":203900,
+			"byteOffset":206344,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3744,
-			"byteOffset":209516,
+			"byteOffset":211960,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":936,
-			"byteOffset":213260,
+			"byteOffset":215704,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":214196,
+			"byteLength":216640,
 			"uri":"garage%20musician%20model.bin"
 		}
 	]
