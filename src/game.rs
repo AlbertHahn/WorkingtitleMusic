@@ -249,8 +249,8 @@ where
     // let _ = parent_query;
 
     return match parent_query.get(child) {
-        Ok(P) => Some(P),
-        Err(P) => match parent_query_simple.get(child) {
+        Ok(parent) => Some(parent),
+        Err(_) => match parent_query_simple.get(child) {
             Ok(new_child) => {
                 recursive_get_parent_query::<A>(**new_child, parent_query, parent_query_simple)
             }
@@ -274,9 +274,9 @@ fn start_animations(
         );
 
         match parent {
-            Some(S) => {
+            Some(s) => {
                 // if S.anim_handle == Handle<AnimationClip>::default
-                player.0.play(S.anim_handle.clone()).repeat();
+                player.0.play(s.anim_handle.clone()).repeat();
                 info!("starting animation for {:?}", player.1.get());
             }
             None => println!(

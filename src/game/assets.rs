@@ -41,10 +41,20 @@ pub struct MyAssets {
 
     #[asset(path = "pedestal.gltf#Mesh0")]
     pub pedestal_handle: Handle<Mesh>,
+
     #[asset(path ="textures/facialexpressions/maleeyes1/", collection(typed))]
     pub eyes_healthy: Vec<Handle<Image>>,
     #[asset(path ="textures/facialexpressions/hurt1male", collection(typed))]
     pub eyes_damaged: Vec<Handle<Image>>,
     #[asset(path ="textures/facialexpressions/dedeyes", collection(typed))]
     pub eyes_dead: Vec<Handle<Image>>,
+
+    // Menu UI
+    #[asset(path ="textures/ui/titlescreen.png")]
+    pub menu_background: Handle<Image>,
+    #[asset(path ="textures/ui/titlescreenStart_cropped.png")]
+    pub menu_play: Handle<Image>,
+    #[asset(path ="textures/ui/titlescreenQuit_cropped.png")]
+    pub menu_quit: Handle<Image>,
+    
 }

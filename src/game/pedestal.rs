@@ -27,8 +27,8 @@ fn switch_musician(mut commands: Commands, mut events: EventReader<SwitchMusicia
     for event in events.read(){
         match commands.get_entity(event.musician_slot_id) {
             Some(musician_slot) => {
-                musician_slot
-                ;
+                // musician_slot
+                // ;
             },
             None => {debug!("faulty SwitchMusicianEvent, couldn't resolve musician_slot_id");},
         };
