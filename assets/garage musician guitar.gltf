@@ -548,7 +548,7 @@
 					}
 				}
 			],
-			"name":"Guitar",
+			"name":"guitar",
 			"samplers":[
 				{
 					"input":29,
@@ -1649,7 +1649,7 @@
 	"buffers":[
 		{
 			"byteLength":1169288,
-			"uri":"garage%20musician%20Guitar.bin"
+			"uri":"garage%20musician%20guitar.bin"
 		}
 	]
 }
