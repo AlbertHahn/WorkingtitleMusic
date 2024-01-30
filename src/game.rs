@@ -111,6 +111,7 @@ fn set_scene(
     let event_description = studio.0.get_event("event:/Levels/1/main").unwrap();
 
     let main_menu_player = bevy_fmod::prelude::AudioSource::new(event_description);
+    main_menu_player.set_volume(0.5);
     main_menu_player.play();
     commands.spawn((InGame, main_menu_player));
 
