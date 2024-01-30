@@ -6,6 +6,18 @@ fmodstudio -build audio/audio.fspro
 '''
 # args = ["-build", "audio/audio.fspro"]
 
+[tasks.build-windows-cross]
+command = "cargo"
+args = ["build", "--target", "x86_64-pc-windows-gnu"]
+
+[tasks.build-windows]
+command = "cargo"
+args = ["build", "--target", "x86_64-pc-windows-msvc"]
+
+[tasks.build-linux]
+command = "cargo"
+args = ["build", "--target", "x86_64-pc-windows-msvc"]
+
 
 [tasks.bundle]
 # env = { "BUNDLE_LOCATION" = "target/bundle"}
