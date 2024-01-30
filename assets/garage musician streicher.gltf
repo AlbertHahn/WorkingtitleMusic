@@ -572,21 +572,21 @@
 				{
 					"sampler":31,
 					"target":{
-						"node":7,
+						"node":6,
 						"path":"scale"
 					}
 				},
 				{
 					"sampler":32,
 					"target":{
-						"node":5,
+						"node":7,
 						"path":"scale"
 					}
 				},
 				{
 					"sampler":33,
 					"target":{
-						"node":6,
+						"node":5,
 						"path":"scale"
 					}
 				}
