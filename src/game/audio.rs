@@ -1,7 +1,7 @@
+use crossbeam_channel::{unbounded, Receiver, Sender};
 use bevy::prelude::*;
 use bevy_fmod::fmod_studio::FmodStudio;
-use crossbeam_channel::{unbounded, Receiver, Sender};
-use libfmod::ffi::{FMOD_RESULT, FMOD_STUDIO_EVENTINSTANCE, FMOD_STUDIO_EVENT_CALLBACK_TYPE};
+use libfmod::ffi::{FMOD_OK, FMOD_RESULT, FMOD_STUDIO_EVENTINSTANCE, FMOD_STUDIO_EVENT_CALLBACK_TYPE};
 
 pub enum LevelEvent {
     TriggerHeatstroke,
@@ -10,6 +10,9 @@ pub enum LevelEvent {
 
 #[derive(Event)]
 pub struct FmodEvent(LevelEvent);
+
+#[derive(Event)]
+pub struct SimpleFmodEvent;
 
 // Struct to hold the closure and context data
 struct CallbackWrapper<F> {
@@ -50,16 +53,25 @@ where
 }
 
 #[derive(Resource)]
-struct FmodReceiver(Receiver<LevelEvent>);
+struct FmodReceiver(Receiver<SimpleFmodEvent>);
+
+static mut FMODRECEIVER: Option<Receiver<SimpleFmodEvent>> = None;
+static mut FMODSENDER: Option<Sender<SimpleFmodEvent>> = None;
 
 pub fn setup_fmod_callbacks(
     mut commands: Commands,
     studio: Res<FmodStudio>,
-    event_sender: EventWriter<FmodEvent>,
+    // event_sender: NonSend<EventWriter<FmodEvent>>,
 ) {
-    let (sender, receiver): (Sender<LevelEvent>, Receiver<LevelEvent>) = unbounded();
+    let (sender, receiver): (Sender<SimpleFmodEvent>, Receiver<SimpleFmodEvent>) = unbounded();
+    // static SENDER: Sender<SimpleFmodEvent> = Box::new(sender_original.to_owned());
+// expected struct `bevy::prelude::NonSend<'_, crossbeam_channel::Receiver<_>, >`
+    // commands.insert_resource(FmodReceiver(NonSend::<receiver>));
 
-    commands.insert_resource(FmodReceiver(receiver));
+    unsafe { 
+        FMODRECEIVER = Some(receiver);
+        FMODSENDER = Some(sender);
+    };
 
     // Spawn a new thread to handle the callback
     // std::thread::spawn(move || {
@@ -68,20 +80,23 @@ pub fn setup_fmod_callbacks(
                                param3: *mut std::ffi::c_void| {
         print!("test!!!");
         // Send the event to the main thread
-        sender.send(LevelEvent::TriggerHeatstroke).unwrap();
-        0 // Placeholder return value
+
+        // unsafe { FMODSENDER.expect("failed to unwrap sender").send(SimpleFmodEvent).expect("failed to send event") };
+        // sender.send(SimpleFmodEvent).expect("crossbeams sender failed");
+        // event_sender.send(FmodEvent(LevelEvent::TriggerHeatstroke));
+        FMOD_OK // Placeholder return value
     };
 
     let callback_wrapper = CallbackWrapper::new(my_closure);
     let callback_bridge = callback_wrapper.get_callback_bridge();
 
-    // let _ = studio
-    //     .0
-    //     .get_event("event:/triggers/trigger_heatstroke")
-    //     .unwrap()
-    //     .set_callback(callback_bridge, 0x0000_0004u32);
+    let _ = studio
+        .0
+        .get_event("event:/triggers/trigger_heatstroke")
+        .unwrap()
+        .set_callback(callback_bridge, 0x0000_0004u32);
     
-    // std::mem::forget(callback_wrapper);
+    std::mem::forget(callback_wrapper); // leak memory for now just to be sure
 
     // The callback wrapper and bridge will live as long as the thread is running
 

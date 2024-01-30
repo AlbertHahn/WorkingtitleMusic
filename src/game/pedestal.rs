@@ -1,4 +1,4 @@
-// use bevy::prelude::*;
+use bevy::prelude::*;
 
 
 // #[derive(Resource)]
@@ -16,3 +16,21 @@
 // fn spawn_musician(){
     
 // }
+
+#[derive(Event)]
+struct SwitchMusicianEvent {
+    pub musician_slot_id: Entity,
+    pub new_scene_handle: Handle<Scene>
+}
+
+fn switch_musician(mut commands: Commands, mut events: EventReader<SwitchMusicianEvent>){
+    for event in events.read(){
+        match commands.get_entity(event.musician_slot_id) {
+            Some(musician_slot) => {
+                musician_slot
+                ;
+            },
+            None => {debug!("faulty SwitchMusicianEvent, couldn't resolve musician_slot_id");},
+        };
+    }
+}
