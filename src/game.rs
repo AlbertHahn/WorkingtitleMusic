@@ -1,4 +1,4 @@
-use bevy::{animation::RepeatAnimation, prelude::*};
+use bevy::{animation::RepeatAnimation, ecs::query::WorldQuery, prelude::*};
 use bevy_fmod::fmod_studio::FmodStudio;
 use bevy_inspector_egui::bevy_egui::EguiPlugin;
 use bevy_mod_picking::prelude::*;
@@ -90,7 +90,10 @@ impl Plugin for MyGamePlugin {
         app.add_systems(Update, setup_fmod_callbacks);
 
         // animation start
-        app.add_systems(Update, start_animations.run_if(state_exists_and_equals(AppState::Game)));
+        app.add_systems(
+            Update,
+            start_animations.run_if(state_exists_and_equals(AppState::Game)),
+        );
     }
 
     fn is_unique(&self) -> bool {
@@ -174,7 +177,9 @@ fn set_scene(
     // ( drums as AnimationPlayer::into()).play(assets.musician_drums_animation.clone());
 
     let mut animation_player = AnimationPlayer::default();
-    animation_player.play(assets.musician_drums_animation.clone()).set_repeat(RepeatAnimation::Forever);
+    animation_player
+        .play(assets.musician_drums_animation.clone())
+        .set_repeat(RepeatAnimation::Forever);
     let drum_scene = commands
         .spawn((
             Name::new("drums animated"),
@@ -191,31 +196,80 @@ fn set_scene(
             On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
                 target_commands.despawn();
             }),
-            // animation_player,
-            // AnimationPlayer {
-            //     paused:false,
-            //     animation: todo!(),
-            //     transitions: todo!(),
-            // }
-        )).id();
+            StartupAnimation {
+                anim_handle: assets.musician_drums_animation.clone(),
+            }, // animation_player,
+               // AnimationPlayer {
+               //     paused:false,
+               //     animation: todo!(),
+               //     transitions: todo!(),
+               // }
+        ))
+        .id();
     // commands.get_entity(drum_scene).unwrap()
+}
+
+#[derive(Component)]
+struct StartupAnimation {
+    anim_handle: Handle<AnimationClip>,
+}
+
+fn recursive_get_parent_query<'a, A>(
+    child: Entity,
+    parent_query: &'a bevy::prelude::Query<'a, 'a, A>,
+    parent_query_simple: &Query::<&Parent>
+) -> Option<<<A as WorldQuery>::ReadOnly as WorldQuery>::Item<'a>>
+where
+    A: bevy::ecs::query::WorldQuery,
+{
+    // let _ = parent_query;
+
+    return match parent_query.get(child) {
+        Ok(P) => Some(P),
+        Err(P) => {
+            match parent_query_simple.get(child){
+                Ok(new_child) => recursive_get_parent_query::<A>(**new_child, parent_query, parent_query_simple),
+                Err(_) => None,
+            }
+        },
+    };
 }
 
 fn start_animations(
     assets: Res<MyAssets>,
-    mut players: Query<&mut AnimationPlayer, Added<AnimationPlayer>>,
-    // state: Res<NextState<AppState>>
+    mut players: Query<(&mut AnimationPlayer, &Parent), Added<AnimationPlayer>>,
+    startup_animation: Query<&StartupAnimation>, // state: Res<NextState<AppState>>
+    parent_query_simple: Query::<&Parent>
 ) {
     for mut player in &mut players {
         // if state.0 != Some(AppState::Game) {
         //     continue;
         // }
 
-        player
-            .play(assets.musician_drums_animation.clone())
-            .repeat();
+        // let parent = startup_animation.get(player.1.get());
 
-        info!("starting drum animation")
+        let parent =
+            recursive_get_parent_query::<&StartupAnimation>(player.1.get(), &startup_animation, &parent_query_simple);
+
+        match parent {
+            Some(S) => {
+                // if S.anim_handle == Handle<AnimationClip>::default
+                player.0.play(S.anim_handle.clone()).repeat();
+                info!("starting animation")
+            },
+            None => println!("couldn't find animation info for entity {:?}", player.1.get()),
+        }
+
+        // if parent.is_ok() {
+        //     player.0.play(parent.unwrap().anim_handle.clone()).repeat();
+
+        //     info!("starting drum animation")
+        // } else {
+        //     info!(
+        //         "failed resolving Startup animation for entity {:?}",
+        //         player.1.get()
+        //     )
+        // }
     }
 }
 
