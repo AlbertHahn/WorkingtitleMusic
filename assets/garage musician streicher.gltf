@@ -750,17 +750,17 @@
 				},
 				{
 					"input":69,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":70
 				},
 				{
 					"input":69,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":71
 				},
 				{
 					"input":69,
-					"interpolation":"STEP",
+					"interpolation":"LINEAR",
 					"output":72
 				}
 			]

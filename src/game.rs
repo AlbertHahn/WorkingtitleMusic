@@ -162,50 +162,74 @@ fn set_scene(
 
     debug!("set pedestal");
 
-    let guitar = vec![("guitar".to_string(), Vec3::new(3.2, -1.6, -40.5))];
-    let drums = vec![("drums".to_string(), Vec3::new(-7.9, -0.8, -48.8))];
-    let streicher = vec![("streicher".to_string(), Vec3::new(-5.2, -1.7, -40.8))];
+    let guitar = vec![(
+        "guitar".to_string(),
+        Vec3::new(3.2, -1.6, -40.5),
+        assets.musician_guitar_anim.clone(),
+    )];
+    let drums = vec![(
+        "drums".to_string(),
+        Vec3::new(-7.9, -0.8, -48.8),
+        assets.musician_drums_animation.clone(),
+    )];
+    let streicher = vec![(
+        "streicher".to_string(),
+        Vec3::new(-5.2, -1.7, -40.8),
+        assets.musician_streicher_anim.clone(),
+    )];
 
-    let keyboard = vec![("keyboard".to_string(), Vec3::new(8.2, -1.7, -48.8))];
+    let keyboard = vec![(
+        "keyboard".to_string(),
+        Vec3::new(8.2, -1.7, -48.8),
+        assets.musician_keyboard_anim.clone(),
+    )];
 
-    // scene_spawner(&mut commands, Handle::<Scene>::default(), &guitar);
-    // scene_spawner(&mut commands, assets.musician_drums_scene.clone(), &drums);
-    // scene_spawner(&mut commands, assets.musician_streicher_scene.clone() , &streicher);
-    // scene_spawner(&mut commands, assets.musician_keyboard_scene.clone() , &keyboard);
+    scene_spawner(&mut commands, assets.musician_guitar_scene.clone(), &guitar);
+    scene_spawner(&mut commands, assets.musician_drums_scene.clone(), &drums);
+    scene_spawner(
+        &mut commands,
+        assets.musician_streicher_scene.clone(),
+        &streicher,
+    );
+    scene_spawner(
+        &mut commands,
+        assets.musician_keyboard_scene.clone(),
+        &keyboard,
+    );
 
     // let drums = quick_spawn_scene(&mut commands, assets.musician_drums_scene.clone(), "drums", Vec3::new(-7.9, -0.8, -48.8));
     // ( drums as AnimationPlayer::into()).play(assets.musician_drums_animation.clone());
 
-    let mut animation_player = AnimationPlayer::default();
-    animation_player
-        .play(assets.musician_drums_animation.clone())
-        .set_repeat(RepeatAnimation::Forever);
-    let drum_scene = commands
-        .spawn((
-            Name::new("drums animated"),
-            SceneBundle {
-                scene: (assets.musician_drums_scene.clone()).clone(),
-                transform: Transform::from_translation(Vec3::new(-7.9, -0.8, -48.8)),
-                ..default()
-            },
-            // PbrBundle {
-            //     mesh: assets.musician_drums_mesh.clone(),
-            //     ..default()
-            // },
-            PickableBundle::default(), // <- Makes the mesh pickable.
-            On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
-                target_commands.despawn();
-            }),
-            StartupAnimation {
-                anim_handle: assets.musician_drums_animation.clone(),
-            }, // animation_player,
-               // AnimationPlayer {
-               //     paused:false,
-               //     animation: todo!(),
-               //     transitions: todo!(),
-               // }
-        ))
-        .id();
+    // let mut animation_player = AnimationPlayer::default();
+    // animation_player
+    //     .play(assets.musician_drums_animation.clone())
+    //     .set_repeat(RepeatAnimation::Forever);
+    // let drum_scene = commands
+    //     .spawn((
+    //         Name::new("drums animated"),
+    //         SceneBundle {
+    //             scene: (assets.musician_drums_scene.clone()).clone(),
+    //             transform: Transform::from_translation(Vec3::new(-7.9, -0.8, -48.8)),
+    //             ..default()
+    //         },
+    //         // PbrBundle {
+    //         //     mesh: assets.musician_drums_mesh.clone(),
+    //         //     ..default()
+    //         // },
+    //         PickableBundle::default(), // <- Makes the mesh pickable.
+    //         On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
+    //             target_commands.despawn();
+    //         }),
+    //         StartupAnimation {
+    //             anim_handle: assets.musician_drums_animation.clone(),
+    //         }, // animation_player,
+    //            // AnimationPlayer {
+    //            //     paused:false,
+    //            //     animation: todo!(),
+    //            //     transitions: todo!(),
+    //            // }
+    //     ))
+    //     .id();
     // commands.get_entity(drum_scene).unwrap()
 }
 
@@ -217,7 +241,7 @@ struct StartupAnimation {
 fn recursive_get_parent_query<'a, A>(
     child: Entity,
     parent_query: &'a bevy::prelude::Query<'a, 'a, A>,
-    parent_query_simple: &Query::<&Parent>
+    parent_query_simple: &Query<&Parent>,
 ) -> Option<<<A as WorldQuery>::ReadOnly as WorldQuery>::Item<'a>>
 where
     A: bevy::ecs::query::WorldQuery,
@@ -226,50 +250,40 @@ where
 
     return match parent_query.get(child) {
         Ok(P) => Some(P),
-        Err(P) => {
-            match parent_query_simple.get(child){
-                Ok(new_child) => recursive_get_parent_query::<A>(**new_child, parent_query, parent_query_simple),
-                Err(_) => None,
+        Err(P) => match parent_query_simple.get(child) {
+            Ok(new_child) => {
+                recursive_get_parent_query::<A>(**new_child, parent_query, parent_query_simple)
             }
+            Err(_) => None,
         },
     };
 }
 
+// runs only on AppState::Game by run condition
 fn start_animations(
-    assets: Res<MyAssets>,
+    // assets: Res<MyAssets>,
     mut players: Query<(&mut AnimationPlayer, &Parent), Added<AnimationPlayer>>,
     startup_animation: Query<&StartupAnimation>, // state: Res<NextState<AppState>>
-    parent_query_simple: Query::<&Parent>
+    parent_query_simple: Query<&Parent>,
 ) {
     for mut player in &mut players {
-        // if state.0 != Some(AppState::Game) {
-        //     continue;
-        // }
-
-        // let parent = startup_animation.get(player.1.get());
-
-        let parent =
-            recursive_get_parent_query::<&StartupAnimation>(player.1.get(), &startup_animation, &parent_query_simple);
+        let parent = recursive_get_parent_query::<&StartupAnimation>(
+            player.1.get(),
+            &startup_animation,
+            &parent_query_simple,
+        );
 
         match parent {
             Some(S) => {
                 // if S.anim_handle == Handle<AnimationClip>::default
                 player.0.play(S.anim_handle.clone()).repeat();
-                info!("starting animation")
-            },
-            None => println!("couldn't find animation info for entity {:?}", player.1.get()),
+                info!("starting animation for {:?}", player.1.get());
+            }
+            None => println!(
+                "couldn't find animation info for entity {:?}",
+                player.1.get()
+            ),
         }
-
-        // if parent.is_ok() {
-        //     player.0.play(parent.unwrap().anim_handle.clone()).repeat();
-
-        //     info!("starting drum animation")
-        // } else {
-        //     info!(
-        //         "failed resolving Startup animation for entity {:?}",
-        //         player.1.get()
-        //     )
-        // }
     }
 }
 
@@ -300,9 +314,9 @@ fn pbr_bundle_spawner(
 fn scene_spawner(
     mut commands: &mut Commands,
     scene_handle: Handle<Scene>,
-    properties: &[(String, Vec3)],
+    properties: &[(String, Vec3, Handle<AnimationClip>)],
 ) {
-    for (name, coordinates) in properties {
+    for (name, coordinates, anim) in properties {
         commands.spawn((
             Name::new(name.clone()),
             SceneBundle {
@@ -314,6 +328,9 @@ fn scene_spawner(
             On::<Pointer<Click>>::target_commands_mut(|_click, target_commands| {
                 target_commands.despawn();
             }),
+            StartupAnimation {
+                anim_handle: anim.clone(),
+            },
         ));
     }
 }

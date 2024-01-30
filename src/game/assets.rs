@@ -13,17 +13,31 @@ pub struct MyAssets {
     // Drummer
     #[asset(path = "garage musician drums.gltf#Scene0")]
     pub musician_drums_scene: Handle<Scene>,
-    #[asset(path = "garage musician drums.gltf#Mesh0")]
-    pub musician_drums_mesh: Handle<Mesh>,
+    // #[asset(path = "garage musician drums.gltf#Mesh0")]
+    // pub musician_drums_mesh: Handle<Mesh>,
     #[asset(path = "garage musician drums.gltf#Animation0")]
     pub musician_drums_animation: Handle<AnimationClip>,
 
-    // #[asset(path = "garage musician streicher.gltf#Scene0")]
-    // pub musician_streicher_scene: Handle<Scene>,
-    // #[asset(path = "garage musician keyboard.gltf#Scene0")]
-    // pub musician_keyboard_scene: Handle<Scene>,
-    // #[asset(path = "garage musician model.gltf#Scene0")]
-    // pub musician_model_scene: Handle<Scene>,
+    // Streicher
+    #[asset(path = "garage musician streicher.gltf#Scene0")]
+    pub musician_streicher_scene: Handle<Scene>,
+    #[asset(path = "garage musician streicher.gltf#Animation0")]
+    pub musician_streicher_anim: Handle<AnimationClip>,
+
+    // keyboard
+    #[asset(path = "garage musician keyboard.gltf#Scene0")]
+    pub musician_keyboard_scene: Handle<Scene>,
+    #[asset(path = "garage musician keyboard.gltf#Animation0")]
+    pub musician_keyboard_anim: Handle<AnimationClip>,
+
+    // guitar
+    #[asset(path = "garage musician guitar.gltf#Scene0")]
+    pub musician_guitar_scene: Handle<Scene>,
+    #[asset(path = "garage musician guitar.gltf#Animation0")]
+    pub musician_guitar_anim: Handle<AnimationClip>,
+
+    #[asset(path = "garage musician model.gltf#Scene0")]
+    pub musician_model_scene: Handle<Scene>,
 
     #[asset(path = "pedestal.gltf#Mesh0")]
     pub pedestal_handle: Handle<Mesh>,
