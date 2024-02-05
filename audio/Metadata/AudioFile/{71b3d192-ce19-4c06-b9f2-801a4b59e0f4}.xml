@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{71b3d192-ce19-4c06-b9f2-801a4b59e0f4}">
+		<property name="assetPath">
+			<value>boo-1.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.8959999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{1d70fd8c-6ea2-4583-9569-ad338947b365}</destination>
+		</relationship>
+	</object>
+</objects>

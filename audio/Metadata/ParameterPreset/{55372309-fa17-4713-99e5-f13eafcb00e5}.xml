@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{55372309-fa17-4713-99e5-f13eafcb00e5}">
+		<property name="name">
+			<value>Audience_Vol</value>
+		</property>
+		<relationship name="folder">
+			<destination>{9d62b16e-7f26-4bf4-bed8-2afb08ed9718}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{8e610220-2e79-417d-81d0-ac53576166b0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{8e610220-2e79-417d-81d0-ac53576166b0}">
+		<property name="maximum">
+			<value>100</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
